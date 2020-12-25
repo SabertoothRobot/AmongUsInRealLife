@@ -1,0 +1,36 @@
+body {
+  background-image: url('StarField.jpg');
+}
+@font-face {
+  font-family: titlefont;
+  src: url(AmaticSC-Regular.ttf);
+} 
+@font-face {
+  font-family: crewmember;
+  src: url(VCR_OSD_MONO_1.001.ttf);
+}
+.mainHeader {
+  font-family: titlefont;
+  color: white;
+  text-align: center;
+}
+button {
+  font-family: titlefont;
+  color: white;
+  text-align: center;
+  background-color: #555555;
+  border-radius: 12px;
+  border: 2px solid #ffffff;
+  font-size: 16px;
+}
+.playerRoles {
+  font-family: crewmember;
+  color: white;
+  display: none;
+  text-align: center;
+}
+.playerTasks {
+  font-family: Ariel;
+  color: white;
+  text-align: center;
+}
