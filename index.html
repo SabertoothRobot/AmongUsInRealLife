@@ -7,10 +7,13 @@
 	<body>
 		<div class="mainHeader">
 			<h1>Enter the number of players:</h1>
-			<input type="text" id="numPlayers" name="np" maxlength="2" size="2" pattern="[0-9]{2}">
+			<input type="text" id="numPlayers" maxlength="2" size="2">
+			<h1>Enter the number of imposters:</h1>
+			<input type="text" id="numImposters" maxlength="2" size="2" value="1">
+			<br>
 			<button onclick="assignRoles()">Do The Thing</button>
 		</div>
-		<div id="pr">
+		<div id="playerRoleDiv">
 		</div>
 	</body>
 </html>

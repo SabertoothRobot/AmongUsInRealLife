@@ -1,18 +1,19 @@
 function assignRoles() {
   var min = 1;
   var max = document.getElementById("numPlayers").value;
-  var imposter = randomIntFromInterval(min, max);
-  var prDivString = populateRoles(imposter, max);
-  document.getElementById("pr").innerHTML = prDivString;
+  var imposterCount = document.getElementById("numImposters").value;
+  var imposters = randomIntFromInterval(min, max, imposterCount);
+  var prDivString = populateRoles(imposters, max);
+  document.getElementById("playerRoleDiv").innerHTML = prDivString;
 }
 
-function populateRoles(imposter, max) {
+function populateRoles(imposters, max) {
   var strReturn = "";
   var i;
   for (i = 0; i < max; i++) {
    var j = i + 1;
    strReturn += "<center><button class=\"accordion\" onclick=\"showHide(" + j + ")\">Player " + j + "</button> </center><br>"
-   if (j == imposter) {
+   if (imposters.indexOf(j) != -1) {
      strReturn += imposterDiv(j);
    } else {
      strReturn += crewmemberDiv(j);
@@ -22,8 +23,17 @@ function populateRoles(imposter, max) {
   return strReturn;
 }
 
-function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+function randomIntFromInterval(min, max, imposterCount) {
+  var imposters = [];
+  var newImposter;
+  for (i = 0; i < imposterCount; i++) {
+     newImposter = Math.floor(Math.random() * (max - min + 1) + min);
+     while (imposters.indexOf(newImposter) != -1) {
+        newImposter = Math.floor(Math.random() * (max - min + 1) + min);
+     }
+     imposters.push(newImposter);
+  }
+  return imposters;
 }
 
 function crewmemberDiv(j) {
